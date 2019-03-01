@@ -1,5 +1,6 @@
 package carcar;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Car {
@@ -11,8 +12,8 @@ public class Car {
     private int capacityPassenger;
     private int numberOfPassenger;
     private int currentSpeed;
-    private CarWheel[] carWheels;
-    private CarDoor[] carDoors;
+    private ArrayList<carcar.CarWheel> carWheels;
+    private ArrayList<carcar.CarDoor> carDoors;
 
     public Car(Date manufacturedAt) {
         this.manufacturedAt = manufacturedAt;
@@ -29,12 +30,12 @@ public class Car {
         this.currentSpeed = currentSpeed;
     }
 
-    public static void changeCurrentSpeed(int currentSpeed){
+    public void changeCurrentSpeed(int currentSpeed){
         this.currentSpeed = currentSpeed;
     }
 
-    public static void addOnePassenger(){
-        if (this.numberOfPassenger!=this.capacityPassenger){
+    public void addOnePassenger(){
+        if (numberOfPassenger != capacityPassenger){
             this.numberOfPassenger++;
         }
         else
@@ -43,25 +44,72 @@ public class Car {
         }
     }
 
-    public static void dropoutOnePassenger(){
-        if (this.numberOfPassenger>0){
-            this.numberOfPassenger--;
+    public void dropOutOnePassenger(){
+        if (numberOfPassenger>0){
+            numberOfPassenger--;
         }
         else{
             return;
         }
     }
 
-    public static void dropOutAllPassengers(){
-        if (this.numberOfPassenger>0){
-            this.numberOfPassenger == 0;
+    public void dropOutAllPassengers(){
+        if (numberOfPassenger>0){
+            this.numberOfPassenger = 0;
         }
         else{
             return;
         }
     }
 
+    public void getDoor(int index){
+        carDoors.get(index);
+    }
+
+    public void getWheel(int index){
+        carWheels.get(index);
+    }
+
+    public void addWheel(int num){
+        for (int i = 0; i < num; i++) {
+            carWheels.add(new carcar.CarWheel());
+        }
+    }
+
+    public void removeAllWheel(){
+        carWheels.clear();
+    }
+
+    public double wrongWheel(){
+        double wrongWheel = 1;
+        for (int i = 0; i < carWheels.size(); i++) {
+            double currentWheel = carWheels.get(i).getTireIntegrity();
+            if (currentWheel < wrongWheel){
+                wrongWheel = currentWheel;
+            }
+        }
+        return wrongWheel;
+    }
+
+    public double currentMaxSpeed(){
+        if (this.numberOfPassenger == 0){
+            return 0;
+        }
+        else{
+            int currentMaxSpeed = (int) (this.maxSpeed * wrongWheel());
+            return currentMaxSpeed;
+        }
+    }
 
 
-
+    public void printCarInfo(){
+        System.out.println("Car manufactered at: " + manufacturedAt);
+        System.out.println("Type of moto: " + typeOfMoto);
+        System.out.println("Max speed of new car: " + maxSpeed);
+        System.out.println("Time to 100 km/h: " + timeto100km);
+        System.out.println("Capacity: " + capacityPassenger + " person");
+        System.out.println("Now im car: " + numberOfPassenger + " person");
+        System.out.println("Current speed: " + currentSpeed + " km/h");
+        System.out.println("Current MAX speed: " + currentMaxSpeed());
+    }
 }
