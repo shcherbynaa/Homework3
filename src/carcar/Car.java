@@ -30,79 +30,74 @@ public class Car {
         this.currentSpeed = currentSpeed;
     }
 
-    public void changeCurrentSpeed(int currentSpeed){
+    public void changeCurrentSpeed(int currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
-    public void addOnePassenger(){
-        if (numberOfPassenger != capacityPassenger){
+    public void addOnePassenger() {
+        if (numberOfPassenger != capacityPassenger) {
             this.numberOfPassenger++;
-        }
-        else
-        {
+        } else {
             return;
         }
     }
 
-    public void dropOutOnePassenger(){
-        if (numberOfPassenger>0){
+    public void dropOutOnePassenger() {
+        if (numberOfPassenger > 0) {
             numberOfPassenger--;
-        }
-        else{
+        } else {
             return;
         }
     }
 
-    public void dropOutAllPassengers(){
-        if (numberOfPassenger>0){
+    public void dropOutAllPassengers() {
+        if (numberOfPassenger > 0) {
             this.numberOfPassenger = 0;
-        }
-        else{
+        } else {
             return;
         }
     }
 
-    public void getDoor(int index){
+    public void getDoor(int index) {
         carDoors.get(index);
     }
 
-    public void getWheel(int index){
+    public void getWheel(int index) {
         carWheels.get(index);
     }
 
-    public void addWheel(int num){
+    public void addWheel(int num) {
         for (int i = 0; i < num; i++) {
             carWheels.add(new carcar.CarWheel());
         }
     }
 
-    public void removeAllWheel(){
+    public void removeAllWheel() {
         carWheels.clear();
     }
 
-    public double wrongWheel(){
+    public double wrongWheel() {
         double wrongWheel = 1;
         for (int i = 0; i < carWheels.size(); i++) {
             double currentWheel = carWheels.get(i).getTireIntegrity();
-            if (currentWheel < wrongWheel){
+            if (currentWheel < wrongWheel) {
                 wrongWheel = currentWheel;
             }
         }
         return wrongWheel;
     }
 
-    public double currentMaxSpeed(){
-        if (this.numberOfPassenger == 0){
+    public double currentMaxSpeed() {
+        if (this.numberOfPassenger == 0) {
             return 0;
-        }
-        else{
+        } else {
             int currentMaxSpeed = (int) (this.maxSpeed * wrongWheel());
             return currentMaxSpeed;
         }
     }
 
 
-    public void printCarInfo(){
+    public void printCarInfo() {
         System.out.println("Car manufactered at: " + manufacturedAt);
         System.out.println("Type of moto: " + typeOfMoto);
         System.out.println("Max speed of new car: " + maxSpeed);

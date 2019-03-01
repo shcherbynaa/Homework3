@@ -12,19 +12,19 @@ public class CarWheel {
         this.tireIntegrity = tireIntegrity;
     }
 
-    public void changeTire(){
+    public void changeTire() {
         tireIntegrity = 1;
     }
 
-    public void wipeTire(double percentOfWipe){
-        tireIntegrity = tireIntegrity - 0.01*percentOfWipe;
+    public void wipeTire(double percentOfWipe) {
+        tireIntegrity = tireIntegrity - 0.01 * percentOfWipe;
     }
 
     public double getTireIntegrity() {
         return tireIntegrity;
     }
 
-    public void printInfoCarWheel(){
+    public void printInfoCarWheel() {
         System.out.println("Wheel condition - " + getTireIntegrity());
     }
 }

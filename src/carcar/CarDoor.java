@@ -23,43 +23,41 @@ public class CarDoor {
         return isWindowOpen;
     }
 
-    public void openDoor(boolean isDoorOpen){
+    public void openDoor(boolean isDoorOpen) {
         this.isDoorOpen = true;
     }
 
-    public void closeDoor(boolean isDoorOpen){
+    public void closeDoor(boolean isDoorOpen) {
         this.isDoorOpen = false;
     }
 
-    public void openOrCloseDoor(boolean isDoorOpen){
-        if (isDoorOpen){
+    public void openOrCloseDoor(boolean isDoorOpen) {
+        if (isDoorOpen) {
             this.isDoorOpen = false;
-        }
-        else{
+        } else {
             this.isDoorOpen = true;
         }
     }
 
-    public void openWindow(boolean isWindowOpen){
+    public void openWindow(boolean isWindowOpen) {
         this.isWindowOpen = true;
     }
 
 
-    public void closeWindow(boolean isWindowOpen){
+    public void closeWindow(boolean isWindowOpen) {
         this.isWindowOpen = false;
     }
 
-    public  void openOrCloseWindow(boolean isWindowOpen){
-        if (isWindowOpen){
+    public void openOrCloseWindow(boolean isWindowOpen) {
+        if (isWindowOpen) {
             this.isWindowOpen = false;
-        }
-        else{
+        } else {
             this.isWindowOpen = true;
         }
     }
 
-    public void printInfoDoor(){
-        System.out.println("Door is " + ((isDoorOpen)?("open") : ("closed")));
-        System.out.println("Window is " + ((isWindowOpen)?("open") : ("closed")));
+    public void printInfoDoor() {
+        System.out.println("Door is " + ((isDoorOpen) ? ("open") : ("closed")));
+        System.out.println("Window is " + ((isWindowOpen) ? ("open") : ("closed")));
     }
 }
