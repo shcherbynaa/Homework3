@@ -61,5 +61,6 @@ public class CarDoor {
    public void printInfoDoor(){
        System.out.println("Door is " + ((isDoorOpen)?"open":"closed"));
        System.out.println("Window is " + ((isWindowOpen)?"open":"closed"));
+       System.out.println("new branch");
    }
 }
