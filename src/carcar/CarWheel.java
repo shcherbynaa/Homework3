@@ -12,12 +12,12 @@ public class CarWheel {
         this.tireIntegrity = tireIntegrity;
     }
 
-    public static void changeBus(){
-        this.tireIntegrity = 1;
+    public void changeTire(){
+        tireIntegrity = 1;
     }
 
-    public static void wipeTire(double percentOfWipe){
-        this.tireIntegrity = this.tireIntegrity - 0.01*percentOfWipe;
+    public void wipeTire(double percentOfWipe){
+        tireIntegrity = tireIntegrity - 0.01*percentOfWipe;
     }
 
     public double getTireIntegrity() {
